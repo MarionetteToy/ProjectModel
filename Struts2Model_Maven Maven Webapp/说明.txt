@@ -1,0 +1,8 @@
+1 核心过滤器org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter如果没有添加config这个参数的话，默认是
+      类路径下的文件
+    
+2 struts2.xml里面的约束和其版本有关系
+
+3 注意通配符的访问路径是怎么样的实现过程，其次如何将后台的数据传送到前台的作用域中进行显示
+
+4 全局结果的设置得放在Actioin的前面
