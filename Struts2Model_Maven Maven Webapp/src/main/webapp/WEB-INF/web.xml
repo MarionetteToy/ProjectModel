@@ -1,0 +1,23 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   <!-- 配置Struts2过滤器 -->
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  	<!-- config参数的名字是固定的，他的值是struts2.xml的位置
+  		如果要指定struts2.xml的位置，那么也必须指定struts-default.xml进行加载
+  	<init-param>
+  		<param-name>config</param-name>
+  		<param-value>struts-default.xml,config/struts.xml,struts-plugin.xml</param-value>
+  	</init-param>
+  	 -->
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
