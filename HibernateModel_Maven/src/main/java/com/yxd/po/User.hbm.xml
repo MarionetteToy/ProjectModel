@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--映射的包名（bean类所在的位置）-->
+<hibernate-mapping package="com.yxd.po">
+
+   <!--entity和数据库表的映射，类名和数据库表名，catalog是指明哪个数据库-->
+   <class name="User" table="t_user" catalog="mydb">
+	  <!--主键，属性名和列名-->
+      <id name="id" column="ID">
+         <generator class="native" />
+      </id>
+	  <!--普通属性，属性名和列名以及相关的约束-->
+      <property name="username" type="string" column="USERNAME"/>
+      <property name="password" type="string" column="PASSWORD"/>
+      <property name="grade" type="string" column="GRADE"/>
+   </class>
+
+</hibernate-mapping>
