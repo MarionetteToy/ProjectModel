@@ -1,0 +1,5 @@
+第一次访问路径：http://localhost:8080/SpringMVCModel_Maven
+
+输入框输入内容
+	* admin表示测试成功
+	* 其他表示测试失败
