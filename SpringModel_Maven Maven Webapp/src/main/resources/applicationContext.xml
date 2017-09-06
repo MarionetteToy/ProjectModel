@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- 配置扫描包  去除控制器 -->
+	<context:component-scan base-package="com.yxd" use-default-filters="true"></context:component-scan>
+	
+	<!-- 配置注解的Aspect -->
+	
+	<!-- 配置配置文件方式的Aspect，这里的数据都是假的 -->
+	<bean id="book" class="com.yxd.aop.Book"></bean>
+	<!-- 切面的Book类也是bean -->
+	<bean id="myBook" class="com.yxd.aop.MyBook"></bean>
+	<aop:config>
+		<!-- 2.1 配置切入点：实际被增强的方法 -->
+		<aop:pointcut expression="execution(* com.yxd.aop.Book.*(..))" id="pointcut"></aop:pointcut>
+		<!-- 2.2 配置切面，切面实质上就是一个bean类：实际要扩展的功能 -->
+		<aop:aspect ref="myBook">
+			<!-- 配置增强类型，通知实质上就是一个方法：前置通知 -->
+			<aop:before method="before1" pointcut-ref="pointcut"/>
+			<aop:after method="after1" pointcut-ref="pointcut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
